@@ -1,0 +1,18 @@
+;reference PDF (4th edition) p. 108 Writing .COM Programs
+
+TITLE ASM1 (NORMAL .COM)
+.MODEL SMALL
+.CODE
+  ORG 100H
+  JMP MAIN
+  MESSAGE DB "HELLO WORLD!!!$"
+
+MAIN PROC FAR
+  MOV AX, @code
+  MOV DS, AX
+  LEA DX, MESSAGE
+  MOV AH, 9
+  INT 21H
+  MOV AH, 4CH
+  INT 21H
+END MAIN
